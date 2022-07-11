@@ -116,7 +116,8 @@ bicycles = ['trek', 'cannondale', 'redline', 'specialized']
 ```
 
 ### List Operations
-#### Accessing Elements in a List
+---
+##### Accessing Elements in a List
 Lists are ordred collections, you access any position using the index like in C.
 ```python
 bicycles = ['trek', 'cannondale', 'redline', 'specialized']
@@ -143,5 +144,12 @@ print(bicycles[-2])
 #will print
 > specialized
 > redline
+```
+
+---
+#### Changing, Adding, and Removing Elements
+##### Creating an Empty List
+```python
+myList = []
 ```
 
