@@ -99,3 +99,49 @@ def func():
 	#print fluffy
 	print(fluffy)
 ```
+
+# Data Structures
+## Lists
+Lists allow you to sore a set of information in one place, whether you have just a few or many items.
+
+A list is a collection of items in a particular order. Like an ordered set.
+
+A list can have whatever variable type you fancy dancy.
+
+* It's a good idea to make the name of your list - plural, such as letters,digits,names and cars
+
+```python
+#Example of a list
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+```
+
+### List Operations
+#### Accessing Elements in a List
+Lists are ordred collections, you access any position using the index like in C.
+```python
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[0])
+print(bicycles[2])
+
+#will print
+> trek
+> redline
+```
+
+* Note that the Index positions start at 0 and not 1
+
+##### Accessing the Element from the end in a List
+Using negative indices will allow to access the list from its end.
+index = -1 , will access the last element in a list.
+index = -2, will access the second from last in a list.
+
+```python
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[-1])
+print(bicycles[-2])
+
+#will print
+> specialized
+> redline
+```
+
