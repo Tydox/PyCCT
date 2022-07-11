@@ -1,5 +1,5 @@
 # PyCCT
-Python Cheat Sheet Templates
+Python Cheat Sheet Templates - Personal Memory Refresher
 --- 
 ## F - Strings
 "f" stands for "format"
@@ -41,3 +41,61 @@ fav_language = 'cpp '
 print(f"With Extra WhiteSapce: {fav_language} \nWithout Extra WhiteSpace: {fav_language.rstrip()}")
 ```
 
+# Numbers
+### Int Operators:
+1. Add `a + b`
+2. Substract `a - b`
+3. Multiply `a * b`
+4. Divide `a / b` ->$\ A\ /\ B = \frac{A}{B}$
+5. Exponent `a ** b` ->$\ A**\ B = A ^ B$
+6. Modulo `a % b`
+### Float
+A number with a decimal point is a *float*.
+
+### Integers & Floats
+When you divide any two numbers A,B. Even if they are integers that result in a whole number, you'll always get a float!
+```python
+4/2 = 2.0
+```
+That is because python defaults to a float in any operation that uses a float, even if the output is a whole number.
+
+### Underscores in Numbers (int,float)
+When writing long numbers, you can group digits using underscores to make the number more readable whilst still keeping the correct value!
+```python 
+num = 14_00_01234_32
+#is the same as
+num = 14000123432
+```
+
+### Multiple Assignment
+You can assign values to more than one variable using just a single line, this can help shorten your program and make it easier to read. 
+
+`Tip:`
+This is most common technique when initializing a set of numbers.
+```python
+x=4  
+y=7  
+z=3  
+print(x,y,z)
+
+#----vs----
+
+a,b,c = 4,7,3  
+print(a,b,c)
+```
+
+### Constant
+Unlike C, in order to have a constant variable aka immutable, you use all capital letters ONLY AS AN INDICATION that the variable should be treated as a constant and never be changed, but it can still be changed if you are not careful!
+```python
+MAX_AMMO = 132
+```
+This is just a visual indication to "Hey don't change me".
+
+# Comments
+Comments are initiated as `#`
+```python
+def func():
+	print(5) #this will print number 5
+	#print fluffy
+	print(fluffy)
+```
