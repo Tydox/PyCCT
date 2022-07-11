@@ -1,10 +1,11 @@
 # PyCCT
 Python Cheat Sheet Templates
-
-## F-Strings
+--- 
+## F - Strings
 "f" stands for "format"
 
-    firstName = "lena"  
-    lastName = "tsibirii"  
-    name = f"{firstName} {lastName}"
-
+```python
+   firstName = "lena"  
+   lastName = "tsibirii"  
+   name = f"{firstName} {lastName}"
+```
