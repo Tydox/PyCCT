@@ -517,7 +517,7 @@ Lists work well for storing collections of items that can change throughout the 
 
 ### Creating a Tuple
 ```python
-
+myTup = (<values>)
 ```
 
 Once you define a tuple, you can access individual elements by using each item’s index, just as you would for a list.
