@@ -418,6 +418,12 @@ print(newList[5:]) #start from index 6 til end
 print(newList[-5:])  #start from index 5 from last aka 10 til end
 > [10, 11, 12, 13, 14]
 
+print(newList[:5]) #start from index 0 til 4
+> [1, 2, 3, 4, 5]
+
+print(newList[:-5]) #start from index 0 til 5 from last aka 10
+> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 print(newList[0:10:2])  #start from index 0 til 10 with a step of 2 betwen indices
 > [1, 3, 5, 7, 9]
 ```
