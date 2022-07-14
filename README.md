@@ -5,7 +5,8 @@ ___
 Dictionary:
 1. Explicit - describes something that is very clear and without vagueness or ambiguity. 
 2. Implicit - often functions as the opposite, referring to something that is understood, but not described clearly or directly, and often using implication or assumption.
-3. 
+3. Mutable - value can be changed
+4. Immutable - value cannot be changed
 
 ___
 
@@ -140,7 +141,9 @@ bicycles = ['trek', 'cannondale', 'redline', 'specialized']
 ```
 
 ### List Operations
+
 ---
+
 ##### Accessing Elements in a List
 Lists are ordred collections, you access any position using the index like in C.
 ```python
@@ -171,6 +174,7 @@ print(bicycles[-2])
 ```
 
 ---
+
 #### Changing, Adding, and Removing Elements
 ##### Creating an Empty List
 ```python
@@ -256,7 +260,7 @@ motorcycles.remove('ducati')
 ```
 
 * The `remove()` method deletes only the first occurrence of the value you specify. If there’s a possibility the value appears more than once in the list, you’ll need to use a loop to make sure all occurrences of the value are removed.
-
+---
 #### Orginizing a List
 ##### Sort vs Sorted
 Sort - changes your list 
@@ -295,6 +299,7 @@ myList.reverse()
 ```
 Notice that reverse() doesn’t sort backward alphabetically; it simply reverses the order of the list indices!
 
+
 ##### Find Length of a List
 You can quickly find the length of a list by using the `len()` .
 
@@ -303,6 +308,8 @@ len(myList)
 ```
 
 Python counts the items in a list starting with one, so you shouldn’t run into any off by one errors when determining the length of a list.
+
+---
 
 ### Working With Lists
 #### For Loops
@@ -404,7 +411,31 @@ print(newList)
 
 ```
 
-#### Slicing  a List
+#### Iterating over a List
+```python
+# Iterating over a list!  
+# more efficient way!  
+# value only  
+numbers = [num for num in range(0, 10, 2)]  
+print(f"Numbers:{numbers}")  
+for value in numbers:  
+    print(f"\t\t\t\tValue={value}")  
+  
+# value and index  
+numbers = [num for num in range(0, 10, 2)]  
+print(f"Numbers:{numbers}")  
+for index, value in enumerate(numbers):  
+    print(f"\t\tIndex={index}\tValue={value}")  
+  
+# less efficient way!  
+numbers = [num for num in range(0, 10, 2)]  
+print(f"Numbers:{numbers}")  
+for index in range(len(numbers)):  
+    print(f"\t\tIndex={index}\tValue={numbers[index]}")
+
+```
+
+#### Slicing  a List - Creating a subset of list
 ```python
 myList[start_Index : end_Index : step_Size]
 -------------------------------------------
@@ -427,3 +458,70 @@ print(newList[:-5]) #start from index 0 til 5 from last aka 10
 print(newList[0:10:2])  #start from index 0 til 10 with a step of 2 betwen indices
 > [1, 3, 5, 7, 9]
 ```
+
+#### Looping Through a Slice
+You can use a slice in a for loop if you want to loop through a subset of the elements in a list. In the next example we loop through the first three players and print their names as part of a simple roster, Instead of looping through the entire list of players, we loop through only the first three names:
+
+```python
+players = ['charles', 'martina', 'michael', 'florence', 'eli']  
+print("Here are the first three players on my team:")  
+for player in players[:3]:  
+    print(player.title())
+	
+>	Here are the first three players on my team:
+	Charles
+	Martina
+	Michael
+```
+
+When you’re working with data, you can use slices to process your data in chunks of a specific size.
+
+#### Copying a List
+INCORRRECT! 
+Python will reference the pointer to the same address, it won't copy the variable like in C
+```python
+lena = ['blue','purple','red']  
+daniel = lena  
+daniel.append('black')  
+print("daniel=lena")  
+print(f"Lena:{lena}")  
+print(f"Daniel:{daniel}")  
+
+>	daniel=lena
+	Lena:['blue', 'purple', 'red', 'black']
+	Daniel:['blue', 'purple', 'red', 'black']
+```
+
+CORRECT!
+You use `newList = oldList[:]` in-order to successfully copy a list!
+This is how to create 2 seperate lists! 
+```python
+lena = ['blue','purple','red']  
+daniel = lena[:]  
+daniel.append('black')  
+print("\ndaniel=lena[:]")  
+print(f"Lena:{lena}")  
+print(f"Daniel:{daniel}")
+
+>	daniel=lena[:]
+	Lena:['blue', 'purple', 'red']
+	Daniel:['blue', 'purple', 'red', 'black']
+```
+
+
+---
+
+
+## Tuples - Immutable list
+Lists work well for storing collections of items that can change throughout the life of a program, sometimes you’ll want to create a list of items that cannot change.
+
+### Creating a Tuple
+```python
+
+```
+
+Once you define a tuple, you can access individual elements by using each item’s index, just as you would for a list.
+
+
+* Tuples are technically defined by the presence of a comma; the parentheses make them look neater and more readable. If you want to define a tuple with one element, you need to include a trailing comma: `myTup = (21,)`
+
