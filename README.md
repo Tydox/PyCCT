@@ -9,6 +9,22 @@ Dictionary:
 
 ___
 
+## Data Types
+### Boolean
+True == 1
+False == 0
+
+```python
+print(f"True==0?: {True==0}")  
+print(f"True==1?: {True==1}")  
+print(f"False==0?: {False==0}")  
+print(f"False==1?: {False==1}")
+```
+
+
+
+
+
 ## F - Strings
 "f" stands for "format"
 
@@ -287,3 +303,121 @@ len(myList)
 ```
 
 Python counts the items in a list starting with one, so you shouldn’t run into any off by one errors when determining the length of a list.
+
+### Working With Lists
+#### For Loops
+
+```python
+for <item> in <item_list> :
+	print(<item>)
+
+
+for dog in dogs:
+	do_something
+```
+
+#### Numerical List
+Lists are ideal for storing sets of numbers, and Python provides a variety of tools to help you work efficiently with lists of numbers.
+
+```python
+for <index> in range( <start_index> , <end_index> ):
+	print(<index>)
+
+
+for value in range(1,5):
+	print(value)
+	
+	# >1,2,3,4
+	
+for value in range(3):
+	print(value)
+	
+	# >0,1,2
+```
+
+The range is from `<start_index>` until  `<end_index> -1`
+Example:
+range(0,5) -> 0,1,2,3,4
+range(7,9) -> 7,8
+range(7,10) -> 7,8,9
+
+```python
+for num in range(start_index, end_index, step_size)
+
+for i in range(0,20,5):  
+    print(i)  
+  
+for i in range(20,0,-5):  
+    print(i)
+```
+
+#### Creating  A Numerical List
+```python
+myList = list(range(end_index) #defaults start to 0
+myList = list(range(start_index, end_index))
+myList = list(range(start_index, end_index, step_size))
+			  
+			  
+			  
+squares = []  
+for value in range(1,11):  
+    square = value ** 2  
+    squares.append(square)  
+print(squares)  
+  
+squares = []  
+for value in range(1,11):  
+    squares.append(value**2)  
+print(squares)  
+  
+squares= []  
+for value in range(1,11):  
+    squares.insert(value-1,value**2)  
+print(squares)
+```
+
+#### Simple Numerical List Functions
+```python
+digits = list(range(0,20,3))
+min(digits)
+max(digits)
+sum(digits)
+```
+
+#### List Comprehensions
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+A list comprehension combines the for loop and the creation of new elements into one line, and automatically appends each new element.
+
+```python
+
+newlist = [<new_value_in_List> for <index> in range(<end index>) if condition == True]
+
+
+newList = [value/2 for value in range(1,15)]  
+print(newList)  
+  
+newList = [value for value in range(1,15) if(value % 2 == 0)]  
+print(newList)
+
+newList = [value*100 for value in range(1,15) if(value % 2 == 0) if(value/2 > 3)]  
+print(newList)
+
+```
+
+#### Slicing  a List
+```python
+myList[start_Index : end_Index : step_Size]
+-------------------------------------------
+newList = [value for value in range(1,15)]  
+print(newList)  
+> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+print(newList[5:]) #start from index 6 til end 
+> [6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+print(newList[-5:])  #start from index 5 from last aka 10 til end
+> [10, 11, 12, 13, 14]
+
+print(newList[0:10:2])  #start from index 0 til 10 with a step of 2 betwen indices
+> [1, 3, 5, 7, 9]
+```
