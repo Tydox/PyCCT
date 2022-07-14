@@ -1,6 +1,14 @@
 # PyCCT
 Python Cheat Sheet Templates - Personal Memory Refresher
---- 
+
+___
+Dictionary:
+1. Explicit - describes something that is very clear and without vagueness or ambiguity. 
+2. Implicit - often functions as the opposite, referring to something that is understood, but not described clearly or directly, and often using implication or assumption.
+3. 
+
+___
+
 ## F - Strings
 "f" stands for "format"
 
@@ -152,4 +160,130 @@ print(bicycles[-2])
 ```python
 myList = []
 ```
+##### Modifiying Elements in a List
+To change an element, use the name of the list followed by the index of the element you want to change, and then provide the new value you want that item to have.
+```python
+myList[<index>] = <Some Data>
+```
+Example:
+```python
+motorcycles = ['honda', 'yamaha', 'suzuki']  
+motorcycles[2] = 'ducati'
+```
 
+#### Adding Elements to a List
+##### 1. Append
+When you append an item to a list, the new element is added to the end of the list,without affecting any of the other elements in the list.
+
+```python
+myList.append(<Some Data>)
+```
+Example:
+```python
+motorcycles.append('ducati')
+```
+
+The append() method makes it easy to build lists dynamically. For example, you can start with an empty list and then add items to the list using a series of append() calls.
+```python 
+motorcycles = [] #empty list
+motorcycles.append('honda') 
+motorcycles.append('yamaha') 
+motorcycles.append('suzuki')
+```
+
+##### 2. Insert
+You can add a new element at any position in your list by using the insert() method. You do this by specifying the index of the new element and the value of the new item.
+
+* It will PUSH the element into the list, not overwrite existing data!*
+```python
+myList.insert(<index>,<Some Data>)
+```
+Example:
+```python
+motorcycles = ['honda', 'yamaha', 'suzuki']  
+motorcycles.insert(0, 'ducati')
+```
+
+#### Removing Elements from List
+here’s a simple way to decide: 
+when you want to delete an item from a list and not use that item in any way, use the del statement; 
+if you want to use an item as you remove it, use the pop() method.
+
+
+##### 1. Del
+You can remove an item according to its position in the list or according to its value.
+If you know the position of the item you want to remove from a list, you can use the del statement.
+```python
+del myList[<index>]
+```
+
+##### 2.Pop
+The pop() method removes the last item in a list, but it lets you work with that item after removing it. 
+The term pop comes from thinking of a list as a stack of items and popping one item off the top of the stack. In this analogy, the top of a stack corresponds to the end of a list.
+```python
+poppedVal = myList.pop()
+```
+You can use pop() to remove an item from any position in a list by including the index of the item you want to remove in parentheses
+```python
+poppedVal = myList.pop(<index>)
+```
+
+#### 3. Remove by Value
+If you only know the value of the item you want to remove, you can use the `remove()`
+```python
+myList.remove(<some data>)
+```
+Example:
+```python
+motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']   
+motorcycles.remove('ducati')
+```
+
+* The `remove()` method deletes only the first occurrence of the value you specify. If there’s a possibility the value appears more than once in the list, you’ll need to use a loop to make sure all occurrences of the value are removed.
+
+#### Orginizing a List
+##### Sort vs Sorted
+Sort - changes your list 
+```python 
+myList.sort()
+```
+
+Sorted - created a copy of your list and sorts that one, keeps the origiral list unchanged
+```python 
+sorted(myList)
+```
+
+Example:
+```python 
+cars = ['bmw', 'audi', 'toyota', 'subaru']  
+print("Here is the original list:")  
+print(cars)  
+print("\nHere is the sorted list:")  
+print(sorted(cars))  
+print("\nHere is the original list again:")  
+print(cars)  
+print("\nHere is the permanent sorted list:")  
+cars.sort()  
+print(cars)  
+print("\nHere is the reversed permanent sorted list:")  
+cars.sort(reverse=True)  
+print(cars)
+```
+
+*Sorting a list alphabetically is a bit more complicated when all the values are not in lowercase.*
+
+##### Reverse Order
+To reverse the original order of a list, you can use the `reverse()`.
+```python 
+myList.reverse()
+```
+Notice that reverse() doesn’t sort backward alphabetically; it simply reverses the order of the list indices!
+
+##### Find Length of a List
+You can quickly find the length of a list by using the `len()` .
+
+```python
+len(myList)
+```
+
+Python counts the items in a list starting with one, so you shouldn’t run into any off by one errors when determining the length of a list.
