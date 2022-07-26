@@ -191,6 +191,17 @@ motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles[2] = 'ducati'
 ```
 
+##### Duplicating/Copying a List
+```python
+old_list = [5,4,3,2,1]  
+new_list = old_list[:]  
+print(new_list)  
+new_list.append(123123)  
+print(old_list)  
+print(new_list)
+```
+
+
 #### Adding Elements to a List
 ##### 1. Append
 When you append an item to a list, the new element is added to the end of the list,without affecting any of the other elements in the list.
@@ -524,4 +535,224 @@ Once you define a tuple, you can access individual elements by using each item�
 
 
 * Tuples are technically defined by the presence of a comma; the parentheses make them look neater and more readable. If you want to define a tuple with one element, you need to include a trailing comma: `myTup = (21,)`
+
+
+
+
+## Logical Comp
+### Check if a Value is in a List
+```python
+flag = <value> in <list>
+#flag will be a bool - True\False
+```
+
+Example:
+```python
+requested_toppings = ['mushrooms', 'onions', 'pineapple']
+flag = 'mushrooms' in requested_toppings #check if value is in a list  
+print(flag)
+
+> True
+```
+
+### Check if a Value isn't in a List
+```python
+flag = <value> not in <list>
+
+if <value> not in <list>
+	do something
+```
+Example:
+```python
+users = ["dan","shrek","gulnuma","lexi"]  
+user1 = "fluffy"  
+user2 = "dan"  
+  
+flag = user1 not in users  
+print(flag)  
+flag2 = user2 not in users  
+print(flag2)
+```
+
+## If Statements
+```python
+if <conditional_test>:
+	do something
+```
+## If Else Statements
+```python
+if <conditional_test>:
+	do something
+else: 
+	do something_else
+```
+## If-elif-else Statements
+```python
+if <conditional_test>:
+	do something
+elif <conditional_test>:
+	do something
+elif <conditional_test>:
+	do something
+else:
+	do something
+	
+```
+
+
+## Dictionaries
+Dictionaries is like a hash table, for every key you store whatever value you want, it can be an int, list, tuple, a dict within a dict, etc.
+
+The key is the identifier, and the value is the content you want stored related to that id.
+```python
+#Init an Empty Dictionary
+newDict = {}  
+#Add a new Key:Value pair
+newDict[ <key> ] = <value>
+```
+
+Typically, you’ll use empty dictionaries when storing user-supplied data in a dictionary or when you write code that generates a large number of key-value pairs automatically.
+
+```python
+alien_0 = {'color': 'green', 'points': 5}  
+print(alien_0)  
+alien_0['x_position'] = 0  
+alien_0['y_position'] = 25  
+print(alien_0)
+```
+
+### Modifying Values in a Dictionary
+```python
+newDict[ <existing_key> ] = <new_value>
+```
+
+### Removing Key:Values in a Dictionary
+This will remove the entire key and all associated values -> this is not a pop function.
+```python
+del newDict[ <existing_key> ]
+```
+
+### Finding/Accessing Values
+
+Using get you can search and retrieve a value, and also have a default value (custom error message).
+```python
+value = mydict.get(<key> , <custom error message if key isnt found>)
+```
+
+
+If you leave out the second argument in the call to get() and the key doesn’t exist, Python will return the value None. The special value None means “no value exists.” This is not an error: it’s a special value meant to indicate the absence of a value.
+
+```python
+alien_0 = {'color': 'green', 'points': 5}
+point_value = alien_0.get('colors',"Some Default Value because key wasnt found")  
+print(point_value)  
+point_value = alien_0.get('color',"Some Default Value because key wasnt found")  
+print(point_value)
+```
+
+### Looping through Dictionary
+
+#### Key + Value loop
+```python
+for key, value in users.items():  
+    print(f"\nKey: {key}\tValue: {value}")
+```
+
+#### Key loop - python default behaviour
+```python
+for key in users.keys():  
+    print(f"\nKey: {key}")
+
+#IS THE SAME AS BECAUSE ITS PYTHON DEFAULT BEHAVIOUR
+for key in users:  
+    print(f"\nKey: {key}")
+
+```
+
+#### Value loop
+```python
+for val in users.values():  
+    print(f"\nValue: {val}")
+```
+
+
+## Sets
+Set is an unordered list of unique values, it will store nonrepetitive list of values.
+```python
+myset ={ value1, value2, value3 }
+```
+
+sets do not retain items in any specific order.
+
+```python
+mySet = {'c','p','c','d'}  
+print(mySet)
+
+> c,p,d
+```
+
+### Nesting  - Math Set -> Subset -> Subset
+Dict in a List
+List in a Dict
+List in a List
+Dict in a Dict
+You shoudn't next too far, 1 subset or 2 subsets is already complex enough, look for a simpler solution.
+
+
+## While
+```python
+end_condition = 5  
+iterator = 0  
+while iterator < end_condition:  
+    print("fluffy dog\t")  
+    iterator +=1  
+  
+msg = "exit"  
+while msg != "exit":  
+    msg = input(f"{msg}:")  
+    if msg != "exit":  
+        print(msg)  
+  
+active = True  
+while active: #while active == true  
+    msg = input(f"{msg}:")  
+  
+    if msg == "exit":  
+        active = False  #stop while loop  
+    else:  
+        print(msg)
+```
+
+#### Special Keywords!
+##### Break
+Will stop the loop entirely!
+
+##### Continue
+Will skip all the remaining code and skip to the next iteration.
+
+### Removing All Instances of spcific values from a List
+```python
+numbers = [1,2,3,1,1,5]  
+rem_num = 1  
+
+while rem_num in numbers:  #this is a dynamic condition->refreshes numbers - for loop does not refresh the condition variable!!!
+    numbers.remove(rem_num)  
+  
+print(numbers)
+
+numbers = [1,2,3,1,1,5]  
+rem_num = 1  
+i=0  
+while rem_num in numbers:  
+    numbers.remove(rem_num)  
+    i+=1  
+    if i == 2:  
+        numbers.append(1)  
+    print(numbers)  
+
+>	[2, 3, 1, 1, 5]
+	 [2, 3, 1, 5, 1]
+	 [2, 3, 5, 1]
+	 [2, 3, 5]
+```
 
