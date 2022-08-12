@@ -756,3 +756,126 @@ while rem_num in numbers:
 	 [2, 3, 5]
 ```
 
+## Functions
+Template:
+```python
+def myFunc(args):
+	<do something>
+```
+
+### Function Default value - like in C
+```python
+def func(arg1,arg2=default_value)
+
+def mypet(name,age=7):  
+    print(f"Name: {name}\nAge: {age}")
+
+mypet("Lucky")
+```
+
+### Calling function with un-ordered arguments
+you can specify what argument you want to associate with your value, that why you don't need to worry about positional arguments / the order of the function paramaters.
+
+```python
+myFunc(arg3=something, arg1=something, arg2=something)
+
+
+def mypet(name,age):  
+    print(f"Name: {name}\nAge: {age}")  
+  
+  
+#Main  
+if __name__ == '__main__':  
+    mypet(age=5,name="Lucky")
+
+
+
+```
+
+### Making Argument optional
+Better to use `None`  than `''`
+
+We can set the argument to `''` which will make it empty default value and ignore the argument unless the user provides a value.
+```python
+def myFunc(arg1, arg2='')
+	if arg2:
+		do something
+	else:
+		do something
+
+def myFunc(arg1, arg2=None)
+	if arg2:
+		do something
+	else:
+		do something
+
+```
+
+```python
+def pets(name,age=None):  
+    if age:  
+        print(f"Name: {name}\nAge: {age}")  
+    else:  
+        print(f"Name: {name}")
+```
+
+
+### Preventing a Function from Modifiying a List/Dict/etc
+In order to pass a copy of the list (not the original), basically by Value and not Reference, we use `[:]`
+
+```python
+def myFunc(aList):
+	do something
+
+#Main
+myFunc(myList[:])
+```
+
+```python
+def checkPointers(ogList,cpyList):  
+    print(f"Objects are the same in memory:\t{ogList is cpyList}")  
+  
+#Main  
+if __name__ == '__main__':  
+    mylist = [1,2,3]  
+    checkPointers(ogList=mylist,cpyList=mylist[:])  
+    checkPointers(ogList=mylist,cpyList=mylist)
+
+> Objects are the same in memory:	False
+> Objects are the same in memory:	True
+
+```
+
+
+## Import function from other files
+### Import all functions from Module
+```python
+import <file>
+```
+
+### Import a Specific Function
+```python
+from module_name import func_name
+
+from module_name import func_name1,func_name2,fun_nameK
+```
+
+### Import Function with an alias
+```python
+from module_name import func_name as newFuncName
+```
+
+### Import Module with an alias
+```python
+import module_name as newModuleName
+```
+
+### Import All Function directly
+Then you dont need to write module_name.func2, and just func2.
+```python
+from module_name import *
+```
+
+
+
+# Testing Your Code
